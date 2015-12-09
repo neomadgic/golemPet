@@ -8,16 +8,28 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController
+{
+    
+    @IBOutlet weak var golemImage: UIImageView!
+    
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        var imageArray = [UIImage]();
+        for var x = 1; x <= 4; x++
+        {
+            let image = UIImage(named: "idle\(x).png")
+            imageArray.append(image!);
+        }
+        
+        golemImage.animationImages = imageArray;
+        golemImage.animationDuration = 0.8;
+        golemImage.animationRepeatCount = 0;
+        golemImage.startAnimating();
+        
     }
 
 
