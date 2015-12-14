@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		765657C41C1E86E300F9D69F /* MonsterImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765657C31C1E86E300F9D69F /* MonsterImg.swift */; settings = {ASSET_TAGS = (); }; };
 		7680BEB81C17E49F004E98AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7680BEB71C17E49F004E98AC /* AppDelegate.swift */; };
 		7680BEBA1C17E49F004E98AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7680BEB91C17E49F004E98AC /* ViewController.swift */; };
 		7680BEBD1C17E49F004E98AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7680BEBB1C17E49F004E98AC /* Main.storyboard */; };
 		7680BEBF1C17E49F004E98AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7680BEBE1C17E49F004E98AC /* Assets.xcassets */; };
 		7680BEC21C17E49F004E98AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7680BEC01C17E49F004E98AC /* LaunchScreen.storyboard */; };
+		76F3C01D1C18AF3700BFFF66 /* DragImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F3C01C1C18AF3700BFFF66 /* DragImage.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		765657C31C1E86E300F9D69F /* MonsterImg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterImg.swift; sourceTree = "<group>"; };
 		7680BEB41C17E49F004E98AC /* golemPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = golemPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7680BEB71C17E49F004E98AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7680BEB91C17E49F004E98AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		7680BEBE1C17E49F004E98AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7680BEC11C17E49F004E98AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7680BEC31C17E49F004E98AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76F3C01C1C18AF3700BFFF66 /* DragImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				7680BEBE1C17E49F004E98AC /* Assets.xcassets */,
 				7680BEC01C17E49F004E98AC /* LaunchScreen.storyboard */,
 				7680BEC31C17E49F004E98AC /* Info.plist */,
+				76F3C01C1C18AF3700BFFF66 /* DragImage.swift */,
+				765657C31C1E86E300F9D69F /* MonsterImg.swift */,
 			);
 			path = golemPet;
 			sourceTree = "<group>";
@@ -134,7 +140,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				765657C41C1E86E300F9D69F /* MonsterImg.swift in Sources */,
 				7680BEBA1C17E49F004E98AC /* ViewController.swift in Sources */,
+				76F3C01D1C18AF3700BFFF66 /* DragImage.swift in Sources */,
 				7680BEB81C17E49F004E98AC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +293,7 @@
 				7680BEC81C17E49F004E98AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
