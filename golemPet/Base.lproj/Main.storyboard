@@ -142,6 +142,9 @@
                         <outlet property="golemImage" destination="T4q-bW-uMd" id="G12-Ge-rKG"/>
                         <outlet property="heartImage" destination="ZKp-YM-SB0" id="hOK-Rc-Xky"/>
                         <outlet property="meatImage" destination="Ogj-or-qOf" id="GR5-YW-aDb"/>
+                        <outlet property="penalty1Image" destination="3ZW-7b-chq" id="olv-ai-sJL"/>
+                        <outlet property="penalty2Image" destination="2rQ-t0-6VQ" id="Bg1-eK-W5v"/>
+                        <outlet property="penalty3Image" destination="YUk-xN-857" id="dhj-z6-Lqn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
