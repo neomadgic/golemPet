@@ -96,6 +96,21 @@
                                     <rect key="frame" x="664" y="113" width="95" height="206"/>
                                 </variation>
                             </stackView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UhA-1j-ITU">
+                                <rect key="frame" x="209" y="266" width="182" height="68"/>
+                                <color key="backgroundColor" red="0.86336016414141414" green="0.35381224616912976" blue="0.7226618419736609" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="IcQ-AF-llt"/>
+                                    <constraint firstAttribute="width" constant="182" id="LU0-8u-I75"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="Start Over?">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onStartOverPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HGX-LC-seB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -103,11 +118,13 @@
                             <constraint firstAttribute="trailing" secondItem="yWD-6o-SKA" secondAttribute="trailing" id="2NQ-yy-Dr1"/>
                             <constraint firstItem="ycl-Ww-hFo" firstAttribute="top" secondItem="2jg-Cf-2Vk" secondAttribute="bottom" constant="8" id="3ZU-ir-xoF"/>
                             <constraint firstItem="2jg-Cf-2Vk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="7Bh-VN-ke1"/>
+                            <constraint firstItem="UhA-1j-ITU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="D3g-S7-o1I"/>
                             <constraint firstItem="T4q-bW-uMd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="GA3-Uo-ENU"/>
                             <constraint firstItem="YIR-PH-SOf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="Mn3-vv-tkt"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zkH-gj-OJC" secondAttribute="bottom" id="RKl-nj-zKt"/>
                             <constraint firstAttribute="trailing" secondItem="zkH-gj-OJC" secondAttribute="trailing" id="RXK-DB-wr7"/>
                             <constraint firstItem="2jg-Cf-2Vk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wjr-PE-Biq"/>
+                            <constraint firstItem="UhA-1j-ITU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="alv-b1-r58"/>
                             <constraint firstItem="yWD-6o-SKA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="c0r-C2-z4y"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="T4q-bW-uMd" secondAttribute="bottom" constant="48" id="cD9-Qg-aB3"/>
                             <constraint firstItem="zkH-gj-OJC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fuq-qe-ek4"/>
@@ -145,6 +162,7 @@
                         <outlet property="penalty1Image" destination="3ZW-7b-chq" id="olv-ai-sJL"/>
                         <outlet property="penalty2Image" destination="2rQ-t0-6VQ" id="Bg1-eK-W5v"/>
                         <outlet property="penalty3Image" destination="YUk-xN-857" id="dhj-z6-Lqn"/>
+                        <outlet property="startOverBtn" destination="UhA-1j-ITU" id="0NK-G9-Lv4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

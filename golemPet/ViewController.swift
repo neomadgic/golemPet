@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController
 {
@@ -17,6 +18,7 @@ class ViewController: UIViewController
     @IBOutlet weak var penalty1Image: UIImageView!
     @IBOutlet weak var penalty2Image: UIImageView!
     @IBOutlet weak var penalty3Image: UIImageView!
+    @IBOutlet weak var startOverBtn: UIButton!
     
     let MAX_PENALTY = 3;
     let DIM_ALPHA: CGFloat = 0.2;
@@ -24,23 +26,43 @@ class ViewController: UIViewController
     
     var penalties = 0;
     var timer: NSTimer!;
-    var isGolemHappy = false;
+    var isGolemHappy = true;
     var currentMood: UInt32 = 0;
+    
+    var bgMusic: AVAudioPlayer!
+    var sfxHeart: AVAudioPlayer!
+    var sfxBite: AVAudioPlayer!
+    var sfxDeath: AVAudioPlayer!
+    var sfxSkull: AVAudioPlayer!
     
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        meatImage.dropTarget = golemImage;
-        heartImage.dropTarget = golemImage;
         
-        penalty1Image.alpha = DIM_ALPHA;
-        penalty2Image.alpha = DIM_ALPHA;
-        penalty3Image.alpha = DIM_ALPHA;
-        startTimer();
+        do
+            {
+            try bgMusic = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("cave-music", ofType: "mp3")!))
+            try sfxHeart = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("heart", ofType: "wav")!))
+            try sfxBite = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("bite", ofType: "wav")!))
+            try sfxDeath = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("death", ofType: "wav")!))
+            try sfxSkull = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("skull", ofType: "wav")!))
+            
+            bgMusic.prepareToPlay()
+            sfxHeart.prepareToPlay()
+            sfxBite.prepareToPlay()
+            sfxDeath.prepareToPlay()
+            sfxSkull.prepareToPlay()
+            bgMusic.play()
+                
+            } catch let err as NSError
+                {
+                    print(err.debugDescription);
+                }
         
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "itemDroppedOnCharacter:", name: "OnTargetDropped", object: nil)
+        
+        startGame();
         
     }
     
@@ -51,6 +73,15 @@ class ViewController: UIViewController
         meatImage.alpha = DIM_ALPHA;
         heartImage.userInteractionEnabled = false
         meatImage.userInteractionEnabled = false
+        
+        if currentMood == 0
+            {
+                sfxHeart.play()
+            }
+        else
+            {
+                sfxBite.play();
+            }
         
         startTimer();
     }
@@ -71,6 +102,7 @@ class ViewController: UIViewController
         if !isGolemHappy
         {
         penalties++
+        sfxSkull.play();
         
         if penalties == 1
             {
@@ -124,9 +156,45 @@ class ViewController: UIViewController
     func gameOver()
     {
         timer.invalidate();
+        sfxDeath.play();
         golemImage.playDeathAnimation();
         penalties = 0;
+        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "showStartButton", userInfo: nil, repeats: false)
     }
+    
+    func startGame()
+    {
+        isGolemHappy = true;
+        meatImage.dropTarget = golemImage;
+        heartImage.dropTarget = golemImage;
+        heartImage.alpha = DIM_ALPHA;
+        meatImage.alpha = DIM_ALPHA;
+        heartImage.userInteractionEnabled = false;
+        meatImage.userInteractionEnabled = false;
+        
+        penalty1Image.alpha = DIM_ALPHA;
+        penalty2Image.alpha = DIM_ALPHA;
+        penalty3Image.alpha = DIM_ALPHA;
+        startTimer();
+        
+        golemImage.playIdleAnimation();
+        startOverBtn.hidden = true;
+        
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "itemDroppedOnCharacter:", name: "OnTargetDropped", object: nil)
+    }
+    
+    @IBAction func onStartOverPressed(sender: AnyObject)
+    {
+        startGame();
+    }
+    
+    func showStartButton()
+    {
+        startOverBtn.hidden = false;
+    }
+    
+    
 
 }
 
