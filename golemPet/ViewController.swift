@@ -24,6 +24,8 @@ class ViewController: UIViewController
     
     var penalties = 0;
     var timer: NSTimer!;
+    var isGolemHappy = false;
+    var currentMood: UInt32 = 0;
     
 
     override func viewDidLoad()
@@ -44,12 +46,19 @@ class ViewController: UIViewController
     
     func itemDroppedOnCharacter(notif: AnyObject)
     {
-        print("Item DROPPED")
+        isGolemHappy = true;
+        heartImage.alpha = DIM_ALPHA;
+        meatImage.alpha = DIM_ALPHA;
+        heartImage.userInteractionEnabled = false
+        meatImage.userInteractionEnabled = false
+        
+        startTimer();
     }
     
     func startTimer()
     {
         if timer != nil
+            
             {
             timer.invalidate();
             }
@@ -59,6 +68,8 @@ class ViewController: UIViewController
     
     func changeGameState()
     {
+        if !isGolemHappy
+        {
         penalties++
         
         if penalties == 1
@@ -84,7 +95,31 @@ class ViewController: UIViewController
             {
                 gameOver();
             }
+        }
+        
+        let rand = arc4random_uniform(2);
+        currentMood = rand;
+        
+        if rand == 0
+            {
+                meatImage.alpha = DIM_ALPHA;
+                meatImage.userInteractionEnabled = false
+            
+                heartImage.alpha = MAX_ALPHA;
+                heartImage.userInteractionEnabled = true
+            }
+        else
+            {
+                heartImage.alpha = DIM_ALPHA;
+                heartImage.userInteractionEnabled = false
+                
+                meatImage.alpha = MAX_ALPHA;
+                meatImage.userInteractionEnabled = true
+            }
+        
+        isGolemHappy = false;
     }
+        
     
     func gameOver()
     {
